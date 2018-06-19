@@ -2,12 +2,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $                                                                              $
 $                              LS-DYNA INPUT DECK                              $
 $                                                                              $
-$          Project:     MMD Driver Trials                                      $
-$             Name:     MAT_025 - Geological Cap Model                         $
-$       Created by:     Devon Hartlen, EIT                                     $
+$          Project:     3M2D                                                   $
+$             Name:     MAT_018 - Power Law Plasticity                         $
+$       Created by:     Devon C. Hartlen, EIT                                  $
 $       Created on:     07-AUG-2016                                            $
-$       Updated by:     Devon Hartlen, EIT                                     $
-$       Updated on:     19-APR-2017                                            $
+$       Updated by:     Devon C. Hartlen, EIT                                  $
+$       Updated on:     19-JUN-2018                                            $
 $                                                                              $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $
@@ -20,7 +20,7 @@ $
 $
 $
 *TITLE
-MAT_024 - test
+MAT_018-2 MMD
 $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $                                                                              $

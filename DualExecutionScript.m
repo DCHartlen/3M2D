@@ -1,7 +1,7 @@
-%% 3M2D Main Execution Script
-% Matlab script designed to write, execute, and parse the LS-DYNA MMD. This
-% script relies heavily on a batch script to enter the appropriate commands
-% into the MMD.
+%% 3M2D Dual Execution Script.
+% Based heavily on the main execution script, this script executes to MMD
+% operations. This makes it somewhat simplier to compare to material
+% models. 
 %
 % Created By:     Devon C. Hartlen, EIT
 % Date:           19-Jun-2018
@@ -18,9 +18,9 @@ clc
 % Deformation gradient is vectorized. DO NOT ALTER.
 paramNames = {'epsxx','epsyy','epszz','epsxy','epsyz','epszx'}';
 % Values of deformation (strain). Alter this vector.
-DeformationVector = -([ 1.0, -0.5, -0.5, 0.0, 0.0, 0.0]*10^-1)';
+StrainVector = -([ 1.0, -0.5, -0.5, 0.0, 0.0, 0.0]*10^-1)';
 % Combine into one variable to allow for writing to file.
-params = [paramNames,num2cell(DeformationVector)];
+params = [paramNames,num2cell(StrainVector)];
 
 %% Enter file save information
 fileName = 'MAT_015.k';

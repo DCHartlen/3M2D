@@ -2,12 +2,12 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $                                                                              $
 $                              LS-DYNA INPUT DECK                              $
 $                                                                              $
-$          Project:     MMD Driver Trials                                      $
-$             Name:     MAT_025 - Geological Cap Model                         $
-$       Created by:     Devon Hartlen, EIT                                     $
+$          Project:     3M2D                                                   $
+$             Name:     MAT_015 - Johnson-Cook Plasticity Model                $
+$       Created by:     Devon C. Hartlen, EIT                                  $
 $       Created on:     07-AUG-2016                                            $
-$       Updated by:     Devon Hartlen, EIT                                     $
-$       Updated on:     19-APR-2017                                            $
+$       Updated by:     Devon C. Hartlen, EIT                                  $
+$       Updated on:     19-JUN-2018                                            $
 $                                                                              $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $
@@ -20,7 +20,7 @@ $
 $
 $
 *TITLE
-MAT_024 - test
+MAT_015 MMD
 $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $                                                                              $
@@ -77,7 +77,7 @@ $ Title:      Aluminum PLP Model for Optimization
 $ Ref:        
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $      MID        RO         G         E        PR       DTF        VP    RATEOP
-      9999      7850               200e9      0.29                            
+      9999      7850    80.0e9                            
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $        A         B         N         C         M        TM        TR      EPS0
    186.8e6   688.1e6    0.1901     0.000      1.00     10000     300.0       1.0
@@ -92,7 +92,7 @@ $
 *EOS_LINEAR_POLYNOMIAL
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $    EOSID        C0        C1        C2        C3        C4        C5        C6
-      8888      80e9
+      8888              80.0e9
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $       E0        V0   
        0.0       1.0                      

@@ -1,12 +1,12 @@
-function write_ls_param(filename, vars, param_target, ID_target, ID)
+function WriteDynaParams(filename, vars, param_target, ID_target, ID)
 %  Write LS-DYNA parameters to any k file
 %  Targets are the line of the file which is to be replaced
 %  ID altering is currently not enabled
 %  
-%  Created By:     D. Hartlen
+%  Created By:     Devon C. Hartlen
 %  Date:           13-May-2016
-%  Updated By:     P.C. Hennessey, EIT
-%  Date:           05-Dec-2017
+%  Updated By:     Devon C. Hartlen, EIT
+%  Date:           19-Jun-2018
 %
 %  Includes the LS-Dyna parameter organizer
 % 
