@@ -7,7 +7,7 @@ $             Name:     MAT_015 + EOS_008-2 - J-C Model with Bilinear EOS      $
 $       Created by:     Devon C. Hartlen, EIT                                  $
 $       Created on:     07-AUG-2016                                            $
 $       Updated by:     Devon C. Hartlen, EIT                                  $
-$       Updated on:     19-JUN-2018                                            $
+$       Updated on:     11-Mar-2019                                            $
 $                                                                              $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $
@@ -17,7 +17,6 @@ $   LENGTH      MASS      TIME     FORCE    STRESS    ENERGY     POWER   DENSITY
 $      [m]      [kg]       [s]       [N]      [Pa]       [J]       [W]   [kg/m3]
 $
 *KEYWORD
-$
 $
 *TITLE
 MAT_015+EOS_008-2 MMD
@@ -31,17 +30,9 @@ $
 *PARAMETER
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $     PRMR       VAL      PRMR       VAL      PRMR       VAL      PRMR       VAL
-R  PlotOut   50.0e-2R  ASCIout   10.0e-0R   TimEnd     100.0R    blank    0.0000
 $                                                                               
 $                                                                               
 $                                                                               
-$
-*PARAMETER_EXPRESSION
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     PRMR                                                            EXPRESSION
-R   TEndLC                                                        TimEnd+ASCIout 
-$
-$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $                                                                              $
 $                                CONTROL CARDS                                 $
@@ -51,7 +42,7 @@ $
 *CONTROL_TERMINATION
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $   ENDTIM    ENDCYC     DTMIN    ENDENG    ENDMAS     NOSOL
-   &TimEnd         0       0.0       0.0       0.0         0
+  &ENDTIME         0       0.0       0.0       0.0         0
 $
 $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -63,7 +54,7 @@ $
 *DATABASE_BINARY_D3PLOT
 $---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
 $       DT      LCDT      BEAM     NPLTC
-  &PlotOut         0
+  &PLOTOUT         0
 $
 $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
@@ -152,112 +143,6 @@ $                          DEFORMATION GRADIENT CARDS                          $
 $                                                                              $
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 $
-*DEFINE_CURVE
-$     (1) du/dx = EPS_xx
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         1         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsxx
-             &TEndLC              &epsxx
-$
-$
-*DEFINE_CURVE
-$     (2) dv/dy = EPS_yy
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         2         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsyy
-             &TEndLC              &epsyy
-$
-$
-*DEFINE_CURVE
-$     (3) dw/dz = EPS_zz
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         3         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epszz
-             &TEndLC              &epszz
-$
-$
-*DEFINE_CURVE
-$     (4) du/dy = EPS_xy
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         4         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsxy
-             &TEndLC              &epsxy
-$
-$
-*DEFINE_CURVE
-$     (5) dv/dx = EPS_yx
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         5         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsxy
-             &TEndLC              &epsxy
-$
-$
-*DEFINE_CURVE
-$     (6) du/dz = EPS_xz
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         6         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epszx
-             &TEndLC              &epszx
-$
-$
-*DEFINE_CURVE
-$     (7) dw/dx = EPS_zx
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         7         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epszx
-             &TEndLC              &epszx
-$
-$
-*DEFINE_CURVE
-$     (8) dv/dz = EPS_yz
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         8         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsyz
-             &TEndLC              &epsyz
-$
-$
-*DEFINE_CURVE
-$     (9) dw/dy = EPS_zy
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$     LCID      SIDR       SFA       SFO      OFFA      OFFO    DATTYP
-         9         0       1.0       1.0       0.0       0.0
-$---+----1----+----2----+----3----+----4----+----5----+----6----+----7----+----8
-$            XVALUES             YVALUES
-                 0.0                 0.0
-             &TimEnd              &epsyz
-             &TEndLC              &epsyz
-$
+$ To be written by 2M3D matlab script.
 $
 *END

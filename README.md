@@ -5,7 +5,7 @@
 This project contains scripts and functions to run the LS-DYNA Material Model Driver (MMD). The MMD accepts a strain field as inputs and directly executes the constitutive model without the need for elements or other boundary conditions.
 
 ## Operation
-Load "MainExecutionScript.m" into Matlab. The input strain vector is found on line 21. Currently, only linear, monotonic loading is supported. The strain vector is written to the LS-DYNA Deck specified on line 26. This deck is not overwritten during operation. This script calls two functions: "WriteDynaParams.m" which writes the input strain vector to LS-DYNA using specific parameters and "ParseMMDOutput.m" which reads in the output files exported by the MMD.
+Load "MainExecutionScript.m" into Matlab. The input strain vector is found on line 21. Currently, only linear, monotonic loading is supported. The strain vector is written to the LS-DYNA Deck specified on line 26. This deck is not overwritten during operation. This script calls three functions: "WriteDynaParams.m" which writes the input strain vector to LS-DYNA using specific parameters, 'WriteDriverCurves.m" which writes all nine strain control curves, and "ParseMMDOutput.m" which reads in the output files exported by the MMD.
 
 In the LS-DYNA Deck, one will find the constitutive model of interest were one can alter material model parameters. This deck only includes the constitutive model, basic outputs and time controls, a single section solid (or shell, depending on your application), a section to enter parameters and nine load curves which convert the strain vector into direct loadings to enter into the constitutive model.
 
@@ -18,6 +18,6 @@ The MMD outputs individual text files containing simulation time and value of in
 All data generated from the MMD is stored in Matlab table. This table is not saved to disc, so it is the end user's responsibility to do so. This is generally not an issue, as the MMD generally takes only a few seconds to execute, so there is no penalty for forgetting to save one's data. 
 
 ## Licensing
-3M2D is distributed under the MIT License. A user is free to do anything to the code so long as the originals source is referred and does not hold the developer liable.
+3M2D is distributed under the MIT License. Users are free to do anything to the code so long as the originals source is referred and does not hold the developer liable.
 
-LS-DYNA is the product of LSTC. LS-DYNA is not distributed with 3M2D and the developer makes no claims on the development or use of LS-DYNA. The end user responsible for the end user's licensing or use of LS-DYNA.
+LS-DYNA is the product of LSTC. LS-DYNA is not distributed with 3M2D and the developer makes no claims on the development or use of LS-DYNA. The end user is responsible for licensing and use of LS-DYNA.
